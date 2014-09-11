@@ -1,0 +1,25 @@
+.header {
+	text-align: center;
+	width: 100%;
+	background-color: #B7D3D0 !important;
+}
+
+.container {
+	background-color: white;
+}
+
+body {
+	background-color: #B7D3D0 !important;
+}
+
+.content {
+	text-align: center;
+	width: 100%;
+	background-color: #A5A324 !important;
+}
+
+.footer {
+	text-align: center;
+	width: 100%;
+	background-color: #B7D3D0 !important;
+}

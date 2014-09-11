@@ -12,11 +12,13 @@ session_start();
 </head>
 <body>
 	<?php include("assets/header.php"); ?>
-	<h1>About GAWTrack</h1>
-	<p>GAWTrack is a tool that allows you to view in detail the history of your payments, payouts, and other events from GAW's cloud mining service.  </p>
-	<p>It works by taking the list of all your past events from the official GAW website's API and translating it into charts, graphs, and numbers that make sense and have meaning.  
-		<br>Try it for yourself!  Click the link below to get started.</p>
-		<a href="input.php">Click Here</a>
-		<?php include("assets/footer.php"); ?>
+	<div class='container content'>
+		<h1>About GAWTrack</h1>
+		<p>GAWTrack is a tool that allows you to view in detail the history of your payments, payouts, and other events from GAW's cloud mining service.  </p>
+		<p>It works by taking the list of all your past events from the official GAW website's API and translating it into charts, graphs, and numbers that make sense and have meaning.  
+			<br>Try it for yourself!  Click the button below to get started.</p>
+		<a href="input.php">Click Here to Begin</a>
+	</div>
+	<?php include("assets/footer.php"); ?>
 </body>
 </html>
