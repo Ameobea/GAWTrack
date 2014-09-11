@@ -70,4 +70,5 @@
 		</script>
 	</div>
 <?php endif; ?>
+<hr>
 </div>

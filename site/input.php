@@ -13,7 +13,7 @@ session_start();
 <body>
 	<?php include("assets/header.php"); ?>
 	<div class='container content'>
-
+		<p>GAWTrack uses the event history data from the GAWMiners API as the source of its information.  This data is availiable on the zenminer website here: <br><a href="https://cloud.zenminer.com/api/activity?iDisplayStart=0&iDisplayLength=10">https://cloud.zenminer.com/api/activity?iDisplayStart=0&iDisplayLength=10</a><br>(Please note that you must be logged in to your zenminer account)</p>
 	</div>
 </body>
 </script>
