@@ -1,4 +1,6 @@
 <?php
+require_once "../modules/login/const.php";
+
 if (isset($_POST['json'])) {
 	$raw = $_POST['json'];
 	//$raw = mysql_escape_string($raw);
@@ -22,8 +24,19 @@ for($i=0; $i<$parsed->iTotalRecords; $i++) {
 		//sweet jesus it's a miracle.  Worked again.
 	$type = $event->action;
 	$data = $event->details;
-	//Now plop them into the database, but first I need to sleep.
+	$id = $event->_id;
+
+	$con = mysqli_connect(Passwords::DB_IP,Passwords::DB_USERNAME,
+		Passwords::DB_PASSWORD,Passwords::DB_DATABASE);
+	if (mysqli_connect_errno()) {
+		echo "Failed to connect to MySQL: " . mysqli_connect_error();
+	}
+	$query = "INSERT INTO `gawtrack`.`events` (`username`, `date`, `type`, `data`, `uid`) VALUES ('$username', '$fixed', '$type', '$data', '$id');";
+	$result = mysqli_query($con, $query);
 	//Oh and you'll need to add /some/ kind of authentication system
 	//To keep people from screwing with it.
 }
+
+echo "Data has successfully been processed and stored.  Click the link below to view your graphs and stats!\n<br>";
+echo "\n<a href='overview.php?user=" . $username . "'>Detailed Stats + Data</a>";
 ?>
