@@ -27,3 +27,7 @@ body {
 .left-align {
 	text-align: left !important;
 }
+
+#important {
+	font-size: 18px;
+}

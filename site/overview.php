@@ -49,6 +49,8 @@ $con = mysqli_connect(Passwords::DB_IP,Passwords::DB_USERNAME,
 			}
 		}
 	}
+	$totaltime = $btctrans[0]['date'] - $btctrans[count($btctrans)-1]['date'];
+	$totaldays = ((($totaltime/60)/24)/1000)/60;
 	//var_dump($btctrans);
 	//var_dump($hptrans)
 ?>
@@ -65,9 +67,20 @@ $con = mysqli_connect(Passwords::DB_IP,Passwords::DB_USERNAME,
 	<?php include("assets/header.php"); ?>
 	<div class='container content'>
 		<h1>Data for user <?php echo $username;?></h1>
+		<p><a href="input.php"><b id='important'>Click here to update your stats</b></a>.</p>
 		<h2>Net Profit History</h2>
 		<div id="netbtcprofit" style='width: 100%; height: 500px;'></div>
-		<p><b>Total Net BTC Profit: </b><?php echo $netbtcprofit; ?> BTC</p>
+		<p>Note that this only accounts for payouts and service charges at this point.  Actions such as hashlet purchases are ignored in this graph and total.</p>
+		<div class="col-md-6">
+			<p><b>Total Net BTC Paid: </b><?php echo $netbtcprofit; ?> BTC</p>
+		</div>
+		<div class="col-md-6">
+			<p><b>Average BTC Mined per Day: </b><?php echo $netbtcprofit/$totaldays; ?> BTC/day</p>
+			<p><b>Average BTC Mined per Week: </b><?php echo ($netbtcprofit/$totaldays)*7; ?> BTC/week</p>
+			<p><b>Average BTC Mined per Month: </b><?php echo ($netbtcprofit/$totaldays)*30; ?> BTC/month</p>
+			<p><b>Average BTC Mined per Year: </b><?php echo ($netbtcprofit/$totaldays)*365; ?> BTC/year</p>
+			<p>Please not that these are averages from the past and not predictions.</p>
+		</div>
 	</div>
 	<?php include("assets/footer.php"); ?>
 <script type='text/javascript'>
@@ -122,7 +135,7 @@ $con = mysqli_connect(Passwords::DB_IP,Passwords::DB_USERNAME,
 		},
 
 		series: [{
-			name: 'PP',
+			name: 'Net BTC Earned',
 			yAxis: 0,
 			data: [
 			<?php

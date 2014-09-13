@@ -14,6 +14,12 @@ session_start();
 <body>
 	<?php include("assets/header.php"); ?>
 	<div class='container content'>
+		<h1>Event History Data Entry</h1>
+		<p>In order to make sure that your data remains private from other users, enter a unique username below that will allow you to access the data that you're about to input.
+		<br>Please not that at this time the phare you enter is stored unencrypted and not sent via a secure connection.  Don't pick something you use as a password elsewhere.</p>
+		<form>
+			<input type="password" id="passwd">
+		</form>
 		<p>GAWTrack uses the event history data from the GAWMiners API as the source of its information.  This data is availiable on the zenminer website here: <br><a href="https://cloud.zenminer.com/api/activity" target="_blank">https://cloud.zenminer.com/api/activity</a><br>(Please note that you must be logged in to your zenminer account)</p>
 		<p>Click the above link and copy the contents of the displayed page into the text box below.  Then press submit.</p>
 		<textarea id="raw" rows="6" cols="50"></textarea><br><br>

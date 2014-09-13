@@ -17,8 +17,22 @@ session_start();
 		<p>GAWTrack is a tool that allows you to view in detail the history of your payments, payouts, and other events from GAW's cloud mining service.  </p>
 		<p>It works by taking the list of all your past events from the official GAW website's API and translating it into charts, graphs, and numbers that make sense and have meaning.  
 			<br>Try it for yourself!  Click the button below to get started.</p>
-		<a href="input.php">Click Here to Begin</a>
+		<a href="input.php"><b id="important">Click Here to Begin</b></a>
 		<br>
+		<hr>
+		<p>Already done that?  Enter the email address of your zenminer account below to view your stats.</p>
+		<form>
+			<p>Email Address: <input type="text" id="uname"></p>
+			<p>Unique Identifier: <input type="text" id="uid"></p>
+			<input type="button" id="statsbut" value="Submit">
+		</form>
+		<script type="text/javascript">
+		$("#statsbut").click(function(event) {
+			event.preventDefault();
+			var url = "overview.php?user=" + $("#uname").val();
+			window.location=url;
+		})
+		</script>
 		<hr>
 		<h2>Todo</h2>
 		<p>Stuff to add:</p>
