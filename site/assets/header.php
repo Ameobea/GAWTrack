@@ -8,6 +8,6 @@
 		<h5><b>In Development - Contribute on <a href="https://github.com/Ameobea/GAWTrack">Github</a>!</b></h5>
 	</div>
 	<div class="col-md-4">
-		<p> </p>
+		<p>GAWTrack version 0.1</p>
 	</div>
 </div>
