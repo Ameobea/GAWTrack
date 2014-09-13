@@ -33,17 +33,6 @@ session_start();
 			window.location=url;
 		})
 		</script>
-		<hr>
-		<h2>Todo</h2>
-		<p>Stuff to add:</p>
-		<div class="left-align">
-			<ul>
-				<li>Charts showing net profit over time as well as profit/day and possibly individual charts for fees and payouts.</li>
-				<li>Hashlet overview showing a list of all hashlets, their names, mhz, etc.</li>
-				<li>%ROI calculations as well as estimed time to ROI</li>
-				<li>(maybe) A timeline with events such as hashlet purchases, renames, merges, etc.</li>
-			</ul>
-		</div>
 	</div>
 	<?php include("assets/footer.php"); ?>
 	<script>
