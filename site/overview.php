@@ -12,12 +12,19 @@ if (isset($_GET['user'])) {
 	die();
 }
 
+if (isset($_GET['uid'])) {
+	$uid = $_GET['uid'];
+} else {
+	echo "No UID specified.  ";
+	die();
+}
+
 $con = mysqli_connect(Passwords::DB_IP,Passwords::DB_USERNAME,
 		Passwords::DB_PASSWORD,Passwords::DB_DATABASE);
 	if (mysqli_connect_errno()) {
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
-	$query = "SELECT * FROM `gawtrack`.`events` WHERE `username` = '$username';";
+	$query = "SELECT * FROM `gawtrack`.`events` WHERE `username` = '$username' AND `pass` = '$uid';";
 	$result = mysqli_query($con, $query);
 	$i=0;
 	while($row = mysqli_fetch_array($result)) {
@@ -49,8 +56,19 @@ $con = mysqli_connect(Passwords::DB_IP,Passwords::DB_USERNAME,
 			}
 		}
 	}
-	$totaltime = $btctrans[0]['date'] - $btctrans[count($btctrans)-1]['date'];
+
+	function cmp($a, $b) {
+	    return $a["date"] - $b["date"];
+	}
+	usort($btctrans, "cmp");
+
+	$totaltime = $btctrans[count($btctrans)-1]['date'] - $btctrans[0]['date'];
+	/*echo $btctrans[0]['date'];
+	echo "   ";
+	echo $btctrans[count($btctrans)-1]['date'];*/
 	$totaldays = ((($totaltime/60)/24)/1000)/60;
+	/*echo "   ";
+	echo $totaldays;*/
 	//var_dump($btctrans);
 	//var_dump($hptrans)
 ?>
@@ -138,12 +156,6 @@ $con = mysqli_connect(Passwords::DB_IP,Passwords::DB_USERNAME,
 			name: 'Net BTC Earned',
 			yAxis: 0,
 			data: [
-			<?php
-			function cmp($a, $b) {
-		        return $a["date"] - $b["date"];
-			}
-	        usort($btctrans, "cmp");
-			?>
 			<?php $net=0; for($i=0; $i < count($btctrans); $i++):?>[<?php echo $btctrans[$i]['date']; ?>, <?php $net = $net + $btctrans[$i]['amount']; echo $net;?>],
 			<?php endfor; ?>
 			]

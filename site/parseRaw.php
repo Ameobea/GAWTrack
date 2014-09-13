@@ -9,6 +9,19 @@ if (isset($_POST['json'])) {
 	die();
 }
 
+if (isset($_POST['uid'])) {
+	if($_POST['uid'] != "") {
+		$uid = $_POST['uid'];
+		//$raw = mysql_escape_string($raw);
+	} else {
+		echo "Need to supply a UID.";
+		die();
+	}
+} else {
+	echo "No UID provided.  ";
+	die();
+}
+
 //var_dump(json_decode($raw));
 $parsed = json_decode($raw);
 $username = $parsed->aaData[0]->user->email;
@@ -31,12 +44,12 @@ for($i=0; $i<$parsed->iTotalRecords; $i++) {
 	if (mysqli_connect_errno()) {
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
-	$query = "INSERT INTO `gawtrack`.`events` (`username`, `date`, `type`, `data`, `uid`) VALUES ('$username', '$fixed', '$type', '$data', '$id');";
+	$query = "INSERT INTO `gawtrack`.`events` (`username`, `date`, `type`, `data`, `uid`, `pass`) VALUES ('$username', '$fixed', '$type', '$data', '$id', '$uid');";
 	$result = mysqli_query($con, $query);
 	//Oh and you'll need to add /some/ kind of authentication system
 	//To keep people from screwing with it.
 }
 
 echo "Data has successfully been processed and stored.  Click the link below to view your graphs and stats!\n<br>";
-echo "\n<a href='overview.php?user=" . $username . "'>Detailed Stats + Data</a>";
+echo "\n<a href='overview.php?user=" . $username . "&uid=" . $uid . "'>Detailed Stats + Data</a>";
 ?>

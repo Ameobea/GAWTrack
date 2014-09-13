@@ -44,9 +44,10 @@ session_start();
 			} else {
 				var raw = $('textarea#raw').val();
 				var parsed = $.parseJSON(raw);
+				var pass = $('#passwd').val();
 				console.log(parsed);
 				$("#response").html("Sending data to the server for processing...");
-		    	var posting = $.post( 'parseRaw.php',{json: raw});
+		    	var posting = $.post( 'parseRaw.php',{uid: pass, json: raw});
 		    	posting.done(function( data ) {
 		    		$( "#response" ).html( "<b>" + data + "</b>");
 		    	})

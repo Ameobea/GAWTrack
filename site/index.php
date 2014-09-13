@@ -29,7 +29,7 @@ session_start();
 		<script type="text/javascript">
 		$("#statsbut").click(function(event) {
 			event.preventDefault();
-			var url = "overview.php?user=" + $("#uname").val();
+			var url = "overview.php?user=" + $("#uname").val() + "&uid=" + $("#uid").val();
 			window.location=url;
 		})
 		</script>
