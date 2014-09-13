@@ -23,3 +23,7 @@ body {
 	width: 100%;
 	background-color: #B7D3D0 !important;
 }
+
+.left-align {
+	text-align: left !important;
+}

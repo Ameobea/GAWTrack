@@ -14,7 +14,7 @@ session_start();
 <body>
 	<?php include("assets/header.php"); ?>
 	<div class='container content'>
-		<p>GAWTrack uses the event history data from the GAWMiners API as the source of its information.  This data is availiable on the zenminer website here: <br><a href="https://cloud.zenminer.com/api/activity">https://cloud.zenminer.com/api/activity</a><br>(Please note that you must be logged in to your zenminer account)</p>
+		<p>GAWTrack uses the event history data from the GAWMiners API as the source of its information.  This data is availiable on the zenminer website here: <br><a href="https://cloud.zenminer.com/api/activity" target="_blank">https://cloud.zenminer.com/api/activity</a><br>(Please note that you must be logged in to your zenminer account)</p>
 		<p>Click the above link and copy the contents of the displayed page into the text box below.  Then press submit.</p>
 		<textarea id="raw" rows="6" cols="50"></textarea><br><br>
 		<input type="button" id="submitData" value="Submit">
@@ -31,7 +31,7 @@ session_start();
 				var records = parsed.iTotalRecords;
 				var reply = "<p>After processing the data, it has been determined that your account has " + records + " total event records in its history.  <br>In order for GAWTrack to be able to read all of them, you have to perform one more maunal query to the API.  </p>";
 				reply += "<p>Navigate to the following page in your browser and copy the entire contents of that page into the box above, then press submit again: </p>";
-				reply += "<p><a href='https://cloud.zenminer.com/api/activity?iDisplayStart=0&iDisplayLength=" + records + "'>https://cloud.zenminer.com/api/activity?iDisplayStart=0&iDisplayLength=" + records + "</a></p>";
+				reply += "<p><a href='https://cloud.zenminer.com/api/activity?iDisplayStart=0&iDisplayLength=" + records + "'  target='_blank'>https://cloud.zenminer.com/api/activity?iDisplayStart=0&iDisplayLength=" + records + "</a></p>";
 				$('textarea#raw').val("");
 				$("#response").html(reply);
 				x = 1;

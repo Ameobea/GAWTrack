@@ -18,6 +18,18 @@ session_start();
 		<p>It works by taking the list of all your past events from the official GAW website's API and translating it into charts, graphs, and numbers that make sense and have meaning.  
 			<br>Try it for yourself!  Click the button below to get started.</p>
 		<a href="input.php">Click Here to Begin</a>
+		<br>
+		<hr>
+		<h2>Todo</h2>
+		<p>Stuff to add:</p>
+		<div class="left-align">
+			<ul>
+				<li>Charts showing net profit over time as well as profit/day and possibly individual charts for fees and payouts.</li>
+				<li>Hashlet overview showing a list of all hashlets, their names, mhz, etc.</li>
+				<li>%ROI calculations as well as estimed time to ROI</li>
+				<li>(maybe) A timeline with events such as hashlet purchases, renames, merges, etc.</li>
+			</ul>
+		</div>
 	</div>
 	<?php include("assets/footer.php"); ?>
 </body>
