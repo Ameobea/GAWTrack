@@ -67,6 +67,7 @@ $con = mysqli_connect(Passwords::DB_IP,Passwords::DB_USERNAME,
 		<h1>Data for user <?php echo $username;?></h1>
 		<h2>Net Profit History</h2>
 		<div id="netbtcprofit" style='width: 100%; height: 500px;'></div>
+		<p><b>Total Net BTC Profit: </b><?php echo $netbtcprofit; ?> BTC</p>
 	</div>
 	<?php include("assets/footer.php"); ?>
 <script type='text/javascript'>
