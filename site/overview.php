@@ -39,7 +39,7 @@ $con = mysqli_connect(Passwords::DB_IP,Passwords::DB_USERNAME,
 	$nethpprofit=0;
 	for($i=0; $i<count($events); $i++) {
 		if($events[$i]["type"] == "payout" || $events[$i]["type"] == "service charge") {
-			if (strpos($events[$i]["data"], 'HashPoints') !== FALSE) {
+			if ((strpos($events[$i]["data"], 'HashPoints') !== FALSE) || (strpos($events[$i]["data"], 'ZenPoints') !== FALSE)) {
 				$sploded = explode(" ", $events[$i]["data"]);
 				$amount = $sploded[3];
 				$nethpprofit = $nethpprofit + $amount;
