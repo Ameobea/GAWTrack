@@ -16,7 +16,7 @@ session_start();
 	<div class='container content'>
 		<h1>Event History Data Entry</h1>
 		<p>In order to make sure that your data remains private from other users, enter a unique username below that will allow you to access the data that you're about to input.
-		<br>Please not that at this time the phare you enter is stored unencrypted and not sent via a secure connection.  Don't pick something you use as a password elsewhere.</p>
+		<br>Please note that at this time the phrase you enter is stored unencrypted and not sent via a secure connection. Don't pick something you use as a password elsewhere.</p>
 		<form>
 			<input type="password" id="passwd">
 		</form>
