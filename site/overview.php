@@ -25,6 +25,7 @@ $con = mysqli_connect(Passwords::DB_IP,Passwords::DB_USERNAME,
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
 	$query = "SELECT * FROM `gawtrack`.`events` WHERE `username` = '$username' AND `pass` = '$uid';";
+	//echo $query;
 	$result = mysqli_query($con, $query);
 	$i=0;
 	while($row = mysqli_fetch_array($result)) {

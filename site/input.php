@@ -20,8 +20,7 @@ session_start();
 		<form>
 			<input type="password" id="passwd">
 		</form>
-		<p>GAWTrack uses the event history data from the GAWMiners API as the source of its information.  This data is availiable on the zenminer website here: <br><a href="https://cloud.zenminer.com/api/activity" target="_blank">https://cloud.zenminer.com/api/activity</a><br>(Please note that you must be logged in to your zenminer account)</p>
-		<p>Click the above link and copy the contents of the displayed page into the text box below.  Then press submit.</p>
+		<p>GAWTrack uses the event history data from the GAWMiners API as the source of its information.  This data is availiable on the zenminer website here: <br><a href="https://cloud.zenminer.com/api/activity" target="_blank">https://cloud.zenminer.com/api/activity</a><br>(Please note that you must be logged in to your zenminer account)</br><i>Note: Some browsers won't display the page and instead attempt to download a file.  In that case, just download the file, open it with a text editor, and copy that in instead - it should work the same).</i></p>
 		<textarea id="raw" rows="6" cols="50"></textarea><br><br>
 		<input type="button" id="submitData" value="Submit">
 		<br>

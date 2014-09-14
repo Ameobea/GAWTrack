@@ -45,7 +45,9 @@ for($i=0; $i<$parsed->iTotalRecords; $i++) {
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
 	$query = "INSERT INTO `gawtrack`.`events` (`username`, `date`, `type`, `data`, `uid`, `pass`) VALUES ('$username', '$fixed', '$type', '$data', '$id', '$uid');";
+	//echo $query;
 	$result = mysqli_query($con, $query);
+	//var_dump($result);
 	//Oh and you'll need to add /some/ kind of authentication system
 	//To keep people from screwing with it.
 }
