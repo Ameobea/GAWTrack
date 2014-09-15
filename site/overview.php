@@ -5,15 +5,15 @@ session_start();
 //TODO: Some kind per-user authentication
 //TODO: Allow for users to input the prices of pre-purchased hashlets that don't show up here.
 
-if (isset($_GET['user'])) {
-	$username = $_GET['user'];
+if (isset($_POST['user'])) {
+	$username = $_POST['user'];
 } else {
 	echo "No username specified.  ";
 	die();
 }
 
-if (isset($_GET['uid'])) {
-	$uid = $_GET['uid'];
+if (isset($_POST['uid'])) {
+	$uid = $_POST['uid'];
 } else {
 	echo "No UID specified.  ";
 	die();

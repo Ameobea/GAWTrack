@@ -21,18 +21,11 @@ session_start();
 		<br>
 		<hr>
 		<p>Already done that?  Enter the email address of your zenminer account below to view your stats.</p>
-		<form>
-			<p>Email Address: <input type="text" id="uname"></p>
-			<p>Unique Identifier: <input type="text" id="uid"></p>
-			<input type="button" id="statsbut" value="Submit">
+		<form method="post" action="overview.php">
+			<p>Email Address: <input type="text" id="uname" name="user"></p>
+			<p>Unique Identifier: <input type="text" id="uid" name="uid"></p>
+			<input type="submit" id="statsbut" value="Submit">
 		</form>
-		<script type="text/javascript">
-		$("#statsbut").click(function(event) {
-			event.preventDefault();
-			var url = "overview.php?user=" + $("#uname").val() + "&uid=" + $("#uid").val();
-			window.location=url;
-		})
-		</script>
 	</div>
 	<?php include("assets/footer.php"); ?>
 	<script>

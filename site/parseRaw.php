@@ -52,6 +52,6 @@ for($i=0; $i<$parsed->iTotalRecords; $i++) {
 	//To keep people from screwing with it.
 }
 
-echo "Data has successfully been processed and stored.  Click the link below to view your graphs and stats!\n<br>";
-echo "\n<a href='overview.php?user=" . $username . "&uid=" . $uid . "'>Detailed Stats + Data</a>";
+echo "Data has successfully been processed and stored.  Click the button below to view your graphs and stats!\n<br>";
+echo "\n<form method='post' action='overview.php'><input type='hidden' name='user' value='" . $username . "'><input type='hidden' name='uid' value='" . $uid . "'><input type='submit' value='View Stats'></form>";
 ?>
