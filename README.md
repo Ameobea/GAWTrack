@@ -5,6 +5,7 @@ Events history tracker for GAW cloud miners.
 
 If you want to clone this on your own, everything should be pre-configured except one thing.  You'll have to create a file called "const.php" in modules/login with the follwing structure:
 
+```php
 <?php
 
 class Passwords {
@@ -15,9 +16,11 @@ class Passwords {
 }
 
 ?>
+```
 
 Here's the MySQL create code for the only table that should be in that database, named events:
 
+```SQL
 CREATE TABLE `events` (
  `id` int(6) NOT NULL AUTO_INCREMENT,
  `username` tinytext NOT NULL,
@@ -29,3 +32,4 @@ CREATE TABLE `events` (
  PRIMARY KEY (`id`),
  UNIQUE KEY `uid` (`uid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=115707 DEFAULT CHARSET=latin1
+```
