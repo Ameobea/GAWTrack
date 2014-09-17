@@ -23,7 +23,7 @@ session_start();
 		<p>Already done that?  Enter the email address of your zenminer account below to view your stats.</p>
 		<form method="post" action="overview.php">
 			<p>Email Address: <input type="text" id="uname" name="user"></p>
-			<p>Unique Identifier: <input type="text" id="uid" name="uid"></p>
+			<p>Unique Identifier: <input type="password" id="uid" name="uid"></p>
 			<input type="submit" id="statsbut" value="Submit">
 		</form>
 	</div>

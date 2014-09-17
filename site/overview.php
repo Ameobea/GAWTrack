@@ -19,6 +19,15 @@ if (isset($_POST['uid'])) {
 	die();
 }
 
+$url = "https://coinbase.com/api/v1/prices/spot_rate";
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+$request = curl_exec($ch);
+$response = json_decode($request, true);
+//var_dump($response);
+$price = $response['amount'];
+
 $con = mysqli_connect(Passwords::DB_IP,Passwords::DB_USERNAME,
 		Passwords::DB_PASSWORD,Passwords::DB_DATABASE);
 	if (mysqli_connect_errno()) {
@@ -86,18 +95,18 @@ $con = mysqli_connect(Passwords::DB_IP,Passwords::DB_USERNAME,
 	<?php include("assets/header.php"); ?>
 	<div class='container content'>
 		<h1>Data for user <?php echo $username;?></h1>
-		<p><a href="input.php"><b id='important'>Click here to update your stats</b></a>.</p>
+		<p><a href="update.php"><b id='important'>Click here to update your stats</b></a>.</p>
 		<h2>Net Profit History</h2>
 		<div id="netbtcprofit" style='width: 100%; height: 500px;'></div>
 		<p>Note that this only accounts for payouts and service charges at this point.  Actions such as hashlet purchases are ignored in this graph and total.</p>
 		<div class="col-md-6">
-			<p><b>Total Net BTC Paid: </b><?php echo $netbtcprofit; ?> BTC</p>
+			<p><b>Total Net BTC Paid: </b><?php echo round($netbtcprofit, 4); ?> BTC (<?php echo round($netbtcprofit*$price, 2); ?> USD)</p>
 		</div>
 		<div class="col-md-6">
-			<p><b>Average BTC Mined per Day: </b><?php echo $netbtcprofit/$totaldays; ?> BTC/day</p>
-			<p><b>Average BTC Mined per Week: </b><?php echo ($netbtcprofit/$totaldays)*7; ?> BTC/week</p>
-			<p><b>Average BTC Mined per Month: </b><?php echo ($netbtcprofit/$totaldays)*30; ?> BTC/month</p>
-			<p><b>Average BTC Mined per Year: </b><?php echo ($netbtcprofit/$totaldays)*365; ?> BTC/year</p>
+			<p><b>Average BTC Mined per Day: </b><?php echo round(($netbtcprofit/$totaldays), 4); ?> BTC/day (<?php echo round(($netbtcprofit/$totaldays)*$price, 2); ?> USD/day)</p>
+			<p><b>Average BTC Mined per Week: </b><?php echo round(($netbtcprofit/$totaldays)*7, 4); ?> BTC/week (<?php echo round(($netbtcprofit/$totaldays)*7*$price, 2); ?> USD/week)</p>
+			<p><b>Average BTC Mined per Month: </b><?php echo round(($netbtcprofit/$totaldays)*30, 4); ?> BTC/month (<?php echo round(($netbtcprofit/$totaldays)*30*$price, 2); ?> USD/month)</p>
+			<p><b>Average BTC Mined per Year: </b><?php echo round(($netbtcprofit/$totaldays)*365, 4); ?> BTC/year (<?php echo round(($netbtcprofit/$totaldays)*365*$price, 2); ?> USD/year)</p>
 			<p>Please not that these are averages from the past and not predictions.</p>
 		</div>
 	</div>
@@ -149,7 +158,8 @@ $con = mysqli_connect(Passwords::DB_IP,Passwords::DB_USERNAME,
 		tooltip: {
 			formatter: function() {
 				return '<b>'+this.series.name+'</b><br>'+
-					Highcharts.dateFormat('%e %b %l:%M %p', this.x) + ': ' + this.y;
+					Highcharts.dateFormat('%e %b %l:%M %p', this.x) + ': ' + this.y+'<br>= '+
+					(this.y*<?php echo $price; ?>).toFixed(2)+' USD';
 			}
 		},
 
