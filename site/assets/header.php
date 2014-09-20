@@ -10,4 +10,7 @@
 		<p>GAWTrack version 0.1</p>
 		<p>Please report any bugs/glitches to me@ameobea.me<br>Feedback is also appreciated!</p>
 	</div>
+	<div class="col-md-12">
+		<div class="alert alert-warning">Note: All site data has been wiped due to a change in database structure.  All users will have to start over from the data entry page <a href="http://ameobea.me/gawtrack/site/input.php">here</a></div>
+	</div>
 </div>
