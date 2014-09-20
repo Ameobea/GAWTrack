@@ -11,6 +11,6 @@
 		<p>Please report any bugs/glitches to me@ameobea.me<br>Feedback is also appreciated!</p>
 	</div>
 	<div class="col-md-12">
-		<div class="alert alert-warning">Note: All site data has been wiped due to a change in database structure.  All users will have to start over from the data entry page <a href="http://ameobea.me/gawtrack/site/input.php">here</a></div>
+		<div class="alert alert-warning">Note: All site functionality has been suspended until official API release due to unknown changes to GAW's current API scheme.  Sorry for the inconvenience.</div>
 	</div>
 </div>

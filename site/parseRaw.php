@@ -5,7 +5,7 @@ if (isset($_POST['json'])) {
 	$raw = $_POST['json'];
 	//$raw = mysql_escape_string($raw);
 } else {
-	echo "Bad JSON string supplied; unable to decode.";
+	echo "No JSON string supplied; unable to decode.";
 	die();
 }
 
@@ -24,6 +24,7 @@ if (isset($_POST['uid'])) {
 
 //var_dump(json_decode($raw));
 $parsed = json_decode($raw);
+var_dump($raw);
 $username = $parsed->aaData[0]->user->email;
 //echo $username;
 //That worked on the first try - it's a glorious day to be alive.
@@ -44,7 +45,7 @@ for($i=0; $i<$parsed->iTotalRecords; $i++) {
 	if (mysqli_connect_errno()) {
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
-	$uuid = $username . "*" . $id;
+	$uuid = $uid . "*" . $id;
 	$query = "INSERT INTO `gawtrack`.`events` (`username`, `date`, `type`, `data`, `uid`, `pass`, `uuid`) VALUES ('$username', '$fixed', '$type', '$data', '$id', '$uid', '$uuid');";
 	//echo $query;
 	$result = mysqli_query($con, $query);
